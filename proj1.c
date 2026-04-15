@@ -6,7 +6,7 @@ void addExpenses(float food[],float transport[], float fees[], int f, int t, int
     printf("select category:\n");
     printf("1.food\n 2.transport\n 3.fees\n");
     scanf("%d",&choice);
-     
+     //used if else condition  so that decision can be made 
     if (choice==1)
     {
         printf("enter food expenses:");
