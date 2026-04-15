@@ -9,8 +9,8 @@ for(i=0;i<t;i++)
 sumtransport= sumtransport + transport[i];
 for(i=0;i<fe;i++)
 sumfees=sumfees + fees[i];
-printf("\nfood total= %2f\n",sumfood);
-printf("transport total=%2f\n",sumtransport);
-printf("fees  total=%2f\n",sumfees);
-printf("Overall total=%2f\n",sumfood + sumtransport+ sumfees);
+printf("\nfood total= %.2f\n",sumfood);// %.2f= float with two decimal is printed which make expennses look clear
+printf("transport total=%.2f\n",sumtransport);
+printf("fees  total=%.2f\n",sumfees);
+printf("Overall total=%.2f\n",sumfood + sumtransport+ sumfees);
 }
