@@ -3,6 +3,7 @@ void showTotal(float food[],float transport[],float fees[],int f,int t,int fe])
 {
 int i;
 float sumfood=0, sumtransport=0,sumfees=0;
+  // for loop is used so that multiple elements are processed automatically
 for(i=0;i<f;i++)
 sumfood =sumfood+food[i];
 for(i=0;i<t;i++)
