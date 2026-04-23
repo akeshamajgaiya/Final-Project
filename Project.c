@@ -1,5 +1,4 @@
 #include<stdio.h>
-// function to add expenses
 void addExpenses(float food[],float transport[], float fees[], int f, int t, int fe)
 {
     int choice ;
@@ -23,7 +22,7 @@ void addExpenses(float food[],float transport[], float fees[], int f, int t, int
         scanf("%f",fees[fe]);
     }
 }
-//function to show total expennses
+
 void showTotal(float food[],float transport[],float fees[],int f,int t,int fe])
 {
 int i;
