@@ -1,48 +1,44 @@
 #include<stdio.h>
-void addExpenses(float food[],float transport[], float fees[], int f, int t, int fe)
+#define MAX 50
+//FUNCTION TO ADD EXPENSES
+void addExpenses(float arr[], int *count, char name[])
 {
-    int choice ;
-    printf("select category:\n");
-    printf("1.food\n 2.transport\n 3.fees\n");
-    scanf("%d",&choice);
-     
-    if (choice==1)
+    float amount ;
+    if (*count>=MAX)
     {
-        printf("enter food expenses:");
-        scanf("%f",food[f]);
+    printf(" %s Limit Reached \n",name);
+    return 0;
     }
-    else if(choice==2)
-    {
-        printf("enter transport expenses");
-        scanf("%t",transport[t]);
-    }
-    else if(choice==3)
-    {
-        printf("enter fee expenses");
-        scanf("%f",fees[fe]);
-    }
+        printf("Enter %s expenses:",name);
+        scanf("%f",&amount);
+        arr[*count]=amount;
+        (*count)++;
+        printf("%s Expenses Added!\n",name);
 }
+//FUNNCTION TO CALCULATE AND SHOW TOTALS
 
 void showTotal(float food[],float transport[],float fees[],int f,int t,int fe])
 {
-int i;
-float sumfood=0, sumtransport=0,sumfees=0;
-for(i=0;i<f;i++)
+float sumfood=0, 
+sumtransport=0,sumfees=0;
+for(int i=0;i<f;i++)
 sumfood =sumfood+food[i];
-for(i=0;i<t;i++)
+for(int i=0;i<t;i++)
 sumtransport= sumtransport + transport[i];
-for(i=0;i<fe;i++)
+for(int i=0;i<fe;i++)
 sumfees=sumfees + fees[i];
-printf("\nfood total= %2f\n",sumfood);
-printf("transport total=%2f\n",sumtransport);
-printf("fees  total=%2f\n",sumfees);
+Printf("\n------------EXPENSE------------\n");
+printf("food total= %.2f\n",sumfood);
+printf("transport total=%.2f\n",sumtransport);
+printf("fees  total=%.2f\n",sumfees);
 printf("Overall total=%2f\n",sumfood + sumtransport+ sumfees);
 }
+//MAIN FUNTION
 int main()
 {
-    float food[50],transport[50],fees[50];
-    int f=0,t=0,fe=0;
-    int choice,category;
+    float food[Max],transport[MAX],fees[MAX];//ARRAYFOR STORING DATA
+    int f=0,t=0,fe=0;//COUNTERS WHICH TRACK NUM OF ENTRIES IN EACH ARRAY
+    int choice,category;//Variables FOR MENU
     do
     {
       printf("\n1.Add expenses/n");
@@ -50,35 +46,57 @@ int main()
       printf("3.Exit\n");
       printf("Enter choice:");
       scanf("%d",&choice);
-      if(choice==1)
-      {
-        printf("select category:\n");
-        printf("1.food\n2. Transport\n3.fees\n");
-        scanf("%d",&category);
-      }
-    if (category==1)
-    {
-        printf("enter food expenses:");
-        scanf("%d",&food[f]);
-        f++;
-    }
-    else if(category==2)
-    {
-    printf("enter transport expenses:");
-    scanf("%d",&transport[t]);
-    t++;
-    }
-    else if (category==3)
-    {
-        printf("enter fees expenses:");
-        scanf("%f",&fees[fe]);
-        fe++;
-    }
-    else if(choice==2)
-    {
-        showTotal (food,transport,fees,f,t,fe);
-    }
-      }
-    while (choice!=3);
-    return 0;
+      switch(choice)//Switch case with break statement with it 
+{
+case 1://ADD OPTION
+Printf("\n1.food 2.transport 3.Fees\n");
+Printf("Select Category:");
+scanf("%d",&Category);
+switch(category)// Nested Switch
+{
+{
+case 1:
+addExpense(food,&f,"food");//calls function addExpense for the food category 
+break;
+case 2:
+addExpense(Transportation,&T,"Transportation");
+break;
+case 3:
+addExpense(Fees,&Fe,"Fees");
+break;
+default
+printf("Invalid Category!\n");
 }
+break;
+Case 2:
+showTotal (food,transport,fees,F,T,Fe);
+break;
+case 3;
+printf("Exiting----------\n");
+break;
+default:
+printf("Invalid Choice\n");
+}
+while (choice!=3);//loop condition
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
